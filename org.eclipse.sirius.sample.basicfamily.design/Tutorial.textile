@@ -2,19 +2,31 @@ h1. Sirius Workshop: Advanced graphical editors for your DSL
 
 h2. Overview
 
-This tutorial explains how to create your first modeling workbench with Sirius.
+This tutorial explains how to use advanced features of Sirius:
+* Edge Creation Tool with preconditions
+* Reconnect Edge Tool
+* Delete Element Tool
+* SVG images
+* Direct Edit Label Tool
+* Style Customization
+* Layers
+* Filters
+* Validation rules and Quick fixes
+* Container with Sub Nodes and Bordered Nodes
+* Navigation through Double-click
+* Table 
 
-These instructions are based on a simple Domain Model which describes basic concepts about families.
-
-The modeling workbench created with this tutorial will allow users to visualize the members of a family and their parental relationships on a graphical diagram. It will also provide tools to edit the model from the diagram.
+The instructions start from a basic modeling tool that is the result of the Starter Tutorial. This starting modeling tool just allows you to create diagrams which represent Men and Women linked by parental relationships. From this diagram yo can also use the palette to create Men.
 
 !https://wiki.eclipse.org/images/1/16/Sirius_4mtuto_01.png!
 
+With this new tutorial, you will learn how to extend the basic modeling tool with many other features.
+
+h2. Prepare your environment
+
 h3. The sample Domain Model
 
-A modeling workbench allows users to create or visualize models of a given Domain Model defined with EMF (Ecore model).
-
-This tutorial relies on a Domain Model (DSL) defining the basic concepts of families:
+The Domain Model used for this tutorial is the same as the one used for the Starter Tutorial: it describes basic concepts about families.
 
 * A family is composed of several persons.
 * Persons are men or women.
@@ -48,7 +60,7 @@ In the new Eclipse runtime, select the Sirius perspective.
 
 This perspective provides specific Sirius menus and a new kind of project (_Modeling Project_). A Modeling Project contains models and the corresponding graphical representations created with Sirius.
 
-h4. Import a sample model and a basic odesign
+h3. Import a sample model and a basic modeling tool
 
 A sample model is available from the git repository _File > Import... > Git > Projects from Git > Existing local repository > econfr2015 > Import existing Eclipse projects_. And select only the following projects:
 * basifamily.sample = Model instance
@@ -66,91 +78,158 @@ This editor allows you to see the properties and relationships of the model elem
 
 !https://wiki.eclipse.org/images/d/de/Sirius_4mtuto_11.png!
 
-A basic designer is provided which defines mappings for Men, Women, child relationship and tool to create Men.
-To start the tutorial, you must select in the git repository the commit: @4d565ab Initial state@
+A basic designer exists which alreay displays Men, Women and child relationship. It also provide a tool to create Men.
 
-h2. Edge Creation Tool
+Install this tool from the examples provided with Sirius. (TODO)
 
-To see the result have a look on the commit : @e5be415 Edge creation tool@
+Before starting to extend this tool, first use it to create a diagram on the sample model: you will see this diagram evolve progressively with new features during this tutorial.
 
-h3. Precondition
+To activate this tool, open the _Viewpoints Selection_ wizard on the modeling project containing the sample model.
+
+<SCREENSHOT>
+
+Then select the _persons_ viewpoint.
+
+<SCREENSHOT>
+
+Now you can create a diagram on the Family object: menu _New Representation_.
+
+<SCREENSHOT>
+
+
+h2. Start the tutorial
+
+The first step of this tutorial consists in completing the basic modeler with a tool to create Women also.
+
+Copy and paste the tool CreateMan, then replace Man by Woman:
+* in the *Id* of the tool
+* in the *Node Mappings* of the tool (use the wizard to select WomanNode)  
+* in the *Create Instance* operation (under the Begin section)
+
+
+h3. Edge Creation Tool
+
+A Edge Creation tool allows the user to create relationshipts directly from the diagram, by using the palette.
+
+Right click on the Section and select the menu 'New Element Creation > Edge Creation'
+
+<SCREENSHOT>
+
+Give an Id to this tool (setFather) and associate it to fatherEdge, the Edge Mapping which defines the father graphical relation.
+
+<SCREENSHOT>
+
+Then define the operations that will be performed by this tool each time the user will click on it. These operations can use four variables that are automatically set by Sirius:
+* **source**: the first object on which the user has clicked (the source of the relation is is going to create)
+* **target**: the second object on which the user has clicked (the target of the relation is is going to 
+* **sourceView**: the graphical object representing the source
+* **targetView**:the graphical object representing the target
+
+Under the _Begin_ object, create a _Change Context_ and set its _Browse Expression_ to _var:source_ in order to define the execution context of the next operations.
+
+<SCREENSHOT>
+
+Under the _Change Context_ create a _Set_ which will set the _father_ of the first Person clicked (source) to the second Person clicked (target):
+* Feature Name: father
+* value Expression: var:target 
+
+<SCREENSHOT>
+
+Save the _odesign_ file and you will see a new tool _setFather_ in the palette.
+
+<SCREENSHOT>
+
+h4. Precondition
+
+To prevent the user to create a father relationship from a person to itself, or to one of its children, you can add a precondition expression.
+
+<SCREENSHOT>
+
+This expression uses to new variables:
+* **preSource**: the object on which the user has clicked first
+* **preTarget**: the object under the cursor
+
+With this precondition, the tool will prevent the creation of forbidden links by showing a specific icon.
+
+<SCREENSHOT>
+
 
 To see the result have a look on the commit : @f70af26 Edge creation tool precondition@
 
-h2. Reconnect Edge Tool
+h3. Reconnect Edge Tool
 
 To see the result have a look on the commit : @e284dac Reconnect edge tool@
 
-h2. Delete Element Tool
+h3. Delete Element Tool
 
 To see the result have a look on the commit : @7395295 Delete element tool@
 
-h2. SVG
+h3. SVG
 
 To see the result have a look on the commit : @5a75b59 SVG@
 
-h2. Direct Edit Label Tool
+h3. Direct Edit Label Tool
 
 To see the result have a look on the commit : @05812f4 Direct edit label tool@
 
-h2. Style Customization
+h3. Style Customization
 
-h3. Property Customization (by selection)
+h4. Property Customization (by selection)
 
 To see the result have a look on the commit : @ced87ac Style customization (by selection)@
 
-h3. Property Customization (by expression)
+h4. Property Customization (by expression)
 
 To see the result have a look on the commit : @bb06489 Style customization (by expression)@
 
-h2. Layer
+h3. Layer
 
 To see the result have a look on the commit : @b509995 Layer@
 
-h2. Filter
+h3. Filter
 
 To see the result have a look on the commit : @8c08461 Filter@
 
-h2. Validation
+h3. Validation
 
-h3. Semantic Validation Rule
+h4. Semantic Validation Rule
 
-h4. Audit
+h5. Audit
 
 To see the result have a look on the commit : @41c885b Validation@
 
-h4. Fix
+h5. Fix
 
 To see the result have a look on the commit : @6ef8c63 Validation fix@
 
-h2. Object-Centered Diagram
+h3. Object-Centered Diagram
 
-h3. Container
+h4. Container
 
 To see the result have a look on the commit : @2f10477 Container@
 
-h3. Sub Node
+h4. Sub Node
 
 To see the result have a look on the commit : @4c5cde2 Sub node@
 
-h3. Border Node
+h4. Border Node
 
 To see the result have a look on the commit : @b2e3937 Border node@
 
-h3. Edge between containers
+h4. Edge between containers
 
 To see the result have a look on the commit : @ea0a0c7 Edge between containers@
 
-h2. Double-click
+h3. Double-click
 
 To see the result have a look on the commit : @92e2dc2 Double click@
 
-h2. Table
+h3. Table
 
-h3. Line
+h4. Line
 
 To see the result have a look on the commit : @2fd95dd Table Line@
 
-h3. Feature Column
+h4. Feature Column
 
 To see the result have a look on the commit : @487301fFeature column@
