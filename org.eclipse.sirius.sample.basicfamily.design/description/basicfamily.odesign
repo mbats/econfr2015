@@ -183,6 +183,9 @@
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="PersonsTable" domainClass="basicfamily.Family">
       <ownedLineMappings name="PersonLine" domainClass="basicfamily.Person" semanticCandidatesExpression="feature:members" headerLabelExpression="feature:name"/>
+      <ownedColumnMappings name="fatherCol" headerLabelExpression="Father" featureName="father" labelExpression="[if father.oclIsUndefined() then '' else father.name endif/]"/>
+      <ownedColumnMappings name="motherCol" headerLabelExpression="Mother" featureName="mother" labelExpression="[if mother.oclIsUndefined() then '' else mother.name endif/]"/>
+      <ownedColumnMappings name="childrenCol" headerLabelExpression="Children" featureName="name" labelExpression="[children->size()/]"/>
     </ownedRepresentations>
   </ownedViewpoints>
 </description:Group>
