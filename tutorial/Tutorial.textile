@@ -357,9 +357,13 @@ Then replace these PNG images set to the styles of _ManNode_ and _WomanNode_ by 
 
 !./images/sirius_tuto2_08-03.png!
 
-Close and re-open the diagram to allow Sirius to take the modification into account: now the images are no more pixelated.
+Finally, set a predefined size to adapt the SVG image to the same size than the 32x32 PNG image (here enter 4).
 
 !./images/sirius_tuto2_08-04.png!
+
+Close and re-open the diagram to allow Sirius to take the modification into account: now the images are no more pixelated.
+
+!./images/sirius_tuto2_08-05.png!
 
 To see the result have a look on the commit : @SVG@
 
@@ -388,6 +392,8 @@ Right click on the _Style Customization_ and select the menu 'New Customization'
 
 On this _Property Customization_, select the two Workspace Images for the _Applied On_ field (they hold the label to change), enter _labelColor_ in the Property Name field, then select the _gray_ color.
 
+Note that you can use the automatic-completion to select the applicable property.
+
 !./images/sirius_tuto2_09-04.png!
 
 Create a second _Style Customizations_ with the condition _[children->size()>1/]_ and add a _Style Customization (by expression)_ to set the _labelSize_ to _12_.
@@ -404,10 +410,35 @@ Save the odesign file and see the result on the diagram.
 
 !./images/sirius_tuto2_09-07.png!
 
-
 To see the result have a look on the commit : @Style customization@
 
 h3(#Layers). Layers
+
+With Sirius it is possible to allocate the specific graphical elements to layers that can be activated/deactivated on demand by the user.
+
+Let's create two layers: one for the Men and one for the Women.
+
+Right click on _Persons diagram_ and select the menu 'New Diagram Element > Additional Layer'. 
+
+!./images/sirius_tuto2_10-01.png!
+
+Call this _Layer_ 'Men' and check the option _Active by default_.
+
+!./images/sirius_tuto2_10-02.png!
+
+Create a _Section_ in this layer then drag and drop all the elements related to the Man type into this layer.
+
+!./images/sirius_tuto2_10-03.png!
+
+Create a second _Layer_ 'Women' and drag and drop all the elements related to the Woman type.
+
+Re-open the sample diagram. You can see the two optional layers Men and Women (selected by default).
+
+!./images/sirius_tuto2_10-04.png!
+
+If you de-activate the Men layer, only women remain on the diagram. Note that the tools related to men have been hidden too.
+
+!./images/sirius_tuto2_10-05.png!
 
 To see the result have a look on the commit : @Layer@
 
