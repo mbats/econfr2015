@@ -365,13 +365,47 @@ To see the result have a look on the commit : @SVG@
 
 h3(#Style_Customization). Style Customization
 
-h3. Property Customization (by selection)
+Style Customizations change graphical properties of diagram elements (color, label, size, ...) depending on conditions.
 
-To see the result have a look on the commit : @Style customization (by selection)@
+For example, let's change the label of a Person depending on the number of its children:
+* Person without children => color label in gray
+* Person having more than one children => set label size to 12
+* Person having grandchildren => prefix label with 'Grandpa' or 'Grandma'
 
-h3. Property Customization (by expression)
+Right click on the _Default Layer_ and select the menu 'New Customization > Style Customizations'. It will group all the different customizations.
 
-To see the result have a look on the commit : @Style customization (by expression)@
+!./images/sirius_tuto2_09-01.png!
+
+Right click on the _Style Customizations_ and select the menu 'New Customization > Style Customization' to create the first customization.
+
+!./images/sirius_tuto2_09-02.png!
+
+Enter the Acceleo3 expression associated to this customization: _[children->size()=0/]_, then define the graphical properties that will change if the condition is met.
+
+Right click on the _Style Customization_ and select the menu 'New Customization'. To change the label color, create a _Property Customization (by selection)_. 
+
+!./images/sirius_tuto2_09-03.png!
+
+On this _Property Customization_, select the two Workspace Images for the _Applied On_ field (they hold the label to change), enter _labelColor_ in the Property Name field, then select the _gray_ color.
+
+!./images/sirius_tuto2_09-04.png!
+
+Create a second _Style Customizations_ with the condition _[children->size()>1/]_ and add a _Style Customization (by expression)_ to set the _labelSize_ to _12_.
+
+!./images/sirius_tuto2_09-05.png!
+
+Finally, create a third _Style Customizations_ with the condition _[children.children->size()>0/]_. Add a _Style Customization (by expression)_ for the _Workspace Image_ corresponding to the Man, enter the property name _labelExpression_ and the expression _['Grandpa '+name/]_ (to prefix the person name with 'Grandpa').
+
+!./images/sirius_tuto2_09-06.png!
+
+Do the same with the Woman image and the expression _['Grandma '+name/]_
+
+Save the odesign file and see the result on the diagram.
+
+!./images/sirius_tuto2_09-07.png!
+
+
+To see the result have a look on the commit : @Style customization@
 
 h3(#Layers). Layers
 
