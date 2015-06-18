@@ -493,15 +493,72 @@ On the diagram, you can now select the filter _childrenFilter_ and see that only
 
 To see the "result":#differences, have a look on the "tag":#tag : @filter@
 
-h3(#Validation). Validation
+h3(#Validation). Validation Rules and Quick Fixes
 
-h3. Semantic Validation Rule
+Validation rules allow the user to evaluate the quality of a model.
 
-h4. Audit
+For example, despite the precondition we have created on the edge creation tool, users can still create circular parental relations between two persons by using the Properties View.
+
+Let's create a _Validation Rule_ to detect this problem.
+
+Right click on _Persons diagram_ and select the menu _New Validation > Validation_. 
+
+!./images/sirius_tuto2_12-01.png!
+
+Set the name 'FamilyValidation' to this _Validation_. Then create a _Semantic Validation Rule_.
+
+!./images/sirius_tuto2_12-02.png!
+
+Set the properties of this rule:
+* Level: Error
+* Target Class: basicFamily.Person
+* Message: ['Children of '+name+' should not include its father ('+father.name+')'/]
+
+!./images/sirius_tuto2_12-03.png!
+
+Then create an _Audit_ (a condition corresponding to this rule) with the expression _[not children->includes(father)/]_.
+
+!./images/sirius_tuto2_12-04.png!
+
+To test this rule, introduce an error in ghe model with the Property View: set the father of a Man to its son.
+
+!./images/sirius_tuto2_12-05.png!
+
+Then right-click on the diagram and select the menu 'Validate diagram'.
+
+!./images/sirius_tuto2_12-06.png!
+
+The circular father relationship is detected and a decorator (corresponding to the rule level) is displayed on the persons with this problem. A tootip contains the error message.
+
+!./images/sirius_tuto2_12-07.png!
 
 To see the "result":#differences, have a look on the "tag":#tag : @validation@
 
 h4. Fix
+
+_Fixes_ can be provided to the user for solving the problem automatically. 
+
+For example, we can propose to unset one of the two _father_ relations.
+
+Right-click on the _Rule_ and select the menu 'New > Fix'.
+
+!./images/sirius_tuto2_13-01.png!
+
+Set the _name_ 'Unset father' to this _Fix_ and create a _Begin_. Then create a _Unset_ and enter _father_ in the _Feature name_.
+
+!./images/sirius_tuto2_13-02.png!
+
+If you open the _Problems View_, you can right-click on one of the errors and select the menu 'Quick Fix'.
+
+!./images/sirius_tuto2_13-03.png!
+
+A dialog opens which proposes the available fixes.
+
+!./images/sirius_tuto2_13-04.png!
+
+Select _Unset father_ and click on _Finish_: the father of the selected person is automatically unset and the problem is solved.
+
+!./images/sirius_tuto2_13-05.png!
 
 To see the "result":#differences, have a look on the "tag":#tag : @validation_fix@
 
