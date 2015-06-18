@@ -439,8 +439,10 @@ To see the "result":#differences, have a look on the "tag":#tag : @style_custo_e
 
 h3(#Layers). Layers
 
-With Sirius it is possible to allocate the specific graphical elements to layers that can be activated/deactivated on demand by the user.
+With Sirius it is possible to allocate specific graphical elements to layers that can be activated/deactivated on demand by the user.
+
 Let's create two layers: one for the Men and one for the Women.
+
 Right click on _Persons diagram_ and select the menu _New Diagram Element > Additional Layer_. 
 
 !./images/sirius_tuto2_10-01.png!
@@ -466,6 +468,28 @@ If you de-activate the _Men_ layer, only women remain on the diagram. Note that 
 To see the "result":#differences, have a look on the "tag":#tag : @layer@
 
 h3(#Filters). Filters
+
+With _Filters_, Sirius provides an additional mechanism to automatically show or hide elements of a diagram: a condition determines which elements remain visible.
+
+Let's create a _Filter_ to hide Persons without children.
+
+Right click on _Persons diagram_ and select the menu _New Filter > Composite Filter_. 
+
+!./images/sirius_tuto2_11-01.png!
+
+Set the _id_ to 'childrenFilter'.
+
+Then create a _Mapping Filter_.
+
+!./images/sirius_tuto2_11-02.png!
+
+Associate _ManNode_ and _WomanNode_ to this filter and define the _Semantic Condition Expression_ : _[children->size()>0/]_
+
+!./images/sirius_tuto2_11-03.png!
+
+On the diagram, you can now select the filter _childrenFilter_ and see that only persons with children remain visible.
+
+!./images/sirius_tuto2_11-04.png!
 
 To see the "result":#differences, have a look on the "tag":#tag : @filter@
 
