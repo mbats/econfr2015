@@ -759,7 +759,7 @@ To see the "result":#differences, have a look on the "tag":#tag : @double_click@
 
 h3(#Table). Table
 
-With Sirius it is also possible to represent model elements with a table.
+With Sirius it is also possible to represent model elements with a _Table_.
 
 Let's create a table that lists all the persons, with this information for each:
 * father's name
@@ -771,8 +771,8 @@ Right-click on the _Viewpoint_ and select the menu @New representation > Edition
 !./images/sirius_tuto2_20-01.png!
 
 Set these properties to the table:
-* **Id**: @Persons table@
-* **Domain Class**: @basicfamily.Family@
+* _Id_: @Persons table@
+* _Domain Class_: @basicfamily.Family@
 
 !./images/sirius_tuto2_20-02.png!
 
@@ -781,9 +781,9 @@ In this table, you need lines to represent the persons. So, right-click on the _
 !./images/sirius_tuto2_20-03.png!
 
 Set these properties to the line:
-* **Id**: @PersonLine@
-* **Domain Class**: @basicfamily.Person@
-* **Header Label Expression** (tab **Label**): @feature:name@
+* _Id_: @PersonLine@
+* _Domain Class_: @basicfamily.Person@
+* _Header Label Expression_ (tab _Label_): @feature:name@
 
 !./images/sirius_tuto2_20-04.png!
 
@@ -800,14 +800,14 @@ Now, let's add columns to this table to display more information for each person
 !./images/sirius_tuto2_20-07.png!
 
 Set these properties to the column:
-* **Id**: @fatherCol@
-* **Feature Name**: @father@
+* _Id_: @fatherCol@
+* _Feature Name_: @father@
 
 !./images/sirius_tuto2_20-08.png!
 
 Select the _Label_ tab and set these properties:
-* **Header Label Expression**: @Father@
-* **label Expression**: @[if father.oclIsUndefined() then '' else father.name endif/]@
+* _Header Label Expression_: @Father@
+* _label Expression_: @[if father.oclIsUndefined() then '' else father.name endif/]@
 
 !./images/sirius_tuto2_20-09.png!
 
@@ -822,14 +822,14 @@ Save the _odesign_ file and see the two new columns.
 Finally, add a new _Feature Column_ to display the number of children.
 
 Set these properties to the column:
-* **Id**: @childrenCol@
-* **Feature Name**: @children@
+* _Id_: @childrenCol@
+* _Feature Name_: @children@
 
 !./images/sirius_tuto2_20-12.png!
 
 Select the _Label_ tab and set these properties:
-* **Header Label Expression**: @Children@
-* **label Expression**: @[children->size()/]@
+* _Header Label Expression_: @Children@
+* _label Expression_: @[children->size()/]@
 
 !./images/sirius_tuto2_20-13.png!
 
