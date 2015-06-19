@@ -72,19 +72,19 @@ This tutorial relies on a Domain Model (DSL) defining the basic concepts of fami
 !https://wiki.eclipse.org/images/0/05/Sirius_4mtuto_02.png!
 
 The domain model is implemented with several EMF projects that you need to import into your workspace.
-Import these projects from the Git repository : File > Import...
+Import these projects from the Git repository : @File > Import...@
 !./images/sirius_tuto2_00-01.png!
 
-Select _Git > Projects from Git_
+Select @Git > Projects from Git@
 !./images/sirius_tuto2_00-02.png!
 
-Select _Existing local repository_
+Select @Existing local repository@
 !./images/sirius_tuto2_01-01.png!
 
 Select @econfr2015@
 !./images/sirius_tuto2_01-02.png!
 
-Select _Import existing Eclipse projects_
+Select @Import existing Eclipse projects@
 !./images/sirius_tuto2_01-03.png!
 
 And select only the following projects:
@@ -108,7 +108,7 @@ To launch a new eclipse application click on _Run / Run Configurations_ and doub
 
 h4. Select the Sirius perspective
 
-In the new Eclipse runtime, select the Sirius perspective.
+In the new Eclipse runtime, select the _Sirius_ perspective.
 
 !https://wiki.eclipse.org/images/8/8f/Sirius_4mtuto_06.png!
 
@@ -150,7 +150,7 @@ Then select the _persons_ viewpoint.
 
 !./images/sirius_tuto2_02-02.png!
 
-Now you can create a diagram on the Family object: menu _New Representation_.
+Now you can create a diagram on the _Family_ object: menu @New Representation@.
 
 !./images/sirius_tuto2_02-03.png!
 
@@ -171,10 +171,10 @@ h4(#tag). Go directly to a specified tag
 
 If you want to skip some steps, you can get directly the result of a step thanks to: @git reset --hard xxx@. For example, when you are on the @initial_state@ you can go directly to the result of the _Creation_ step:
 * from the command line: @git reset --hard creation@
-* from Obeo Designer with EGit: Select the project @org.eclipse.sirius.sample.basicfamily.design@ from the Model Explorer and right click to select _Team > Reset > Tags_. Select a tag and in the reset type the _*Hard*_ radio button: 
+* from Obeo Designer with EGit: Select the project @org.eclipse.sirius.sample.basicfamily.design@ from the Model Explorer and right click to select @Team > Reset > Tags@. Select a tag and in the reset type the _*Hard*_ radio button: 
 !./images/sirius_tuto2_03-05.png!
 
-If you have a look to the odesign file, it is updated with the expected changes.
+If you have a look to the _odesign_ file, it is updated with the expected changes.
 
 h2. Start the tutorial
 
@@ -183,10 +183,10 @@ h3. Creation tool
 The first step of this tutorial consists in completing the basic modeler with a tool to create _Women_ also.
 
 Copy and paste the tool _CreateMan_, then replace Man by _Woman_:
-* in the *Id* of the tool
-* in the *Node Mappings* of the tool (use the wizard to select WomanNode)  
-* in the *Create Instance* operation (under the Begin section)
-* in the *Value Expression* of the Set @name@ (under the Create instance)
+* in the _Id_ of the tool
+* in the _Node Mappings_ of the tool (use the wizard to select _WomanNode_)  
+* in the _Create Instance_ operation (under the _Begin_ section)
+* in the _Value Expression_ of the _Set_ (under the _Create_ instance)
 
 !./images/sirius_tuto2_03-01.png!
 
@@ -198,7 +198,7 @@ An _Edge Creation_ tool allows the user to create relationships directly from th
 
 Let's use this tool to allow the user to set the father and the mother of a Person.
 
-Right click on the _Section_ and select the menu 'New Element Creation > Edge Creation'
+Right click on the _Section_ and select the menu @New Element Creation > Edge Creation@
 
 !./images/sirius_tuto2_04-01.png!
 
@@ -254,7 +254,7 @@ A _Reconnect Edge_ tool allows the user to change the end of a relationship by m
 
 Let's create a _Reconnect Edge_ tool to change the _father_ and the _mother_ of a Person.
 
-Right click on the _Section_ and select the menu 'New Element Edition > Reconnect Edge'
+Right click on the _Section_ and select the menu @New Element Edition > Reconnect Edge@.
 
 !./images/sirius_tuto2_05-01.png!
 
@@ -282,7 +282,7 @@ A Reconnect Edge tool allows the user to change the end of a relationship by mov
 
 Let's create a reconnect edge tool to change the father and the mother of a person.
 
-Right click on the Section and select the menu 'New Element Edition > Reconnect Edge'
+Right click on the Section and select the menu @New Element Edition > Reconnect Edge@.
 
 !./images/sirius_tuto2_05_01.png!
 
@@ -316,7 +316,7 @@ It is necessary on elements which deletion can't be interpreted by Sirius (for e
 
 Let's create a _Delete Element_ tool to specify what to do when the user deletes a paretal relation.
 
-Right click on the _Section_ and select the menu 'New Element Edition > Delete Element'
+Right click on the _Section_ and select the menu @New Element Edition > Delete Element@.
 
 !./images/sirius_tuto2_06-01.png!
 
@@ -341,7 +341,7 @@ A _Direct Edit Label_ specifies how to interpret the modification of graphical o
 
 Let's create a _Direct Edit Label_ to change the name of a Person directly from the diagram.
 
-Right click on the _Section_ and select the menu 'New Element Edition > Direct Edit Label'
+Right click on the _Section_ and select the menu @New Element Edition > Direct Edit Label@.
 
 !./images/sirius_tuto2_07-01.png!
 
@@ -391,11 +391,11 @@ For example, let's change the label of a Person depending on the number of its c
 * Person having more than one children => set label size to 12
 * Person having grandchildren => prefix label with _Grandpa_ or _Grandma_
 
-Right click on the _Default Layer_ and select the menu _New Customization > Style Customizations_. It will group all the different customizations.
+Right click on the _Default Layer_ and select the menu @New Customization > Style Customizations@. It will group all the different customizations.
 
 !./images/sirius_tuto2_09-01.png!
 
-Right click on the _Style Customizations_ and select the menu _New Customization > Style Customization_ to create the first customization.
+Right click on the _Style Customizations_ and select the menu @New Customization > Style Customization@ to create the first customization.
 
 !./images/sirius_tuto2_09-02.png!
 
@@ -404,11 +404,11 @@ Enter the Acceleo3 expression associated to this customization:
 
 Then define the graphical properties that will change if the condition is met.
 
-Right click on the _Style Customization_ and select the menu _New Customization_. To change the label color, create a _Property Customization (by selection)_. 
+Right click on the _Style Customization_ and select the menu @New Customization@. To change the label color, create a _Property Customization (by selection)_. 
 
 !./images/sirius_tuto2_09-03.png!
 
-On this _Property Customization_, select the two Workspace Images for the _Applied On_ field (they hold the label to change), enter _labelColor_ in the Property Name field, then select the _gray_ color.
+On this _Property Customization_, select the two _Workspace Images_ for the _Applied On_ field (they hold the label to change), enter @labelColor@ in the _Property Name_ field, then select the @gray@ color.
 
 Note that you can use the automatic-completion to select the applicable property.
 
@@ -431,7 +431,7 @@ Add a _Style Customization (by expression)_ for the _Workspace Image_ correspond
 
 Do the same with the Woman image and the expression @['Grandma '+name/]@.
 
-Save the odesign file and see the result on the diagram.
+Save the _odesign_ file and see the result on the diagram.
 
 !./images/sirius_tuto2_09-07.png!
 
@@ -439,9 +439,11 @@ To see the "result":#differences, have a look on the "tag":#tag : @style_custo_e
 
 h3(#Layers). Layers
 
-With Sirius it is possible to allocate the specific graphical elements to layers that can be activated/deactivated on demand by the user.
+With Sirius it is possible to allocate specific graphical elements to layers that can be activated/deactivated on demand by the user.
+
 Let's create two layers: one for the Men and one for the Women.
-Right click on _Persons diagram_ and select the menu _New Diagram Element > Additional Layer_. 
+
+Right click on _Persons diagram_ and select the menu @New Diagram Element > Additional Layer@. 
 
 !./images/sirius_tuto2_10-01.png!
 
@@ -467,48 +469,373 @@ To see the "result":#differences, have a look on the "tag":#tag : @layer@
 
 h3(#Filters). Filters
 
+With _Filters_, Sirius provides an additional mechanism to automatically show or hide elements of a diagram: a condition determines which elements remain visible.
+
+Let's create a _Filter_ to hide Persons without children.
+
+Right click on _Persons diagram_ and select the menu @New Filter > Composite Filter@. 
+
+!./images/sirius_tuto2_11-01.png!
+
+Set the _id_ to 'childrenFilter'.
+
+Then create a _Mapping Filter_.
+
+!./images/sirius_tuto2_11-02.png!
+
+Associate _ManNode_ and _WomanNode_ to this filter and define the _Semantic Condition Expression_ : _[children->size()>0/]_
+
+!./images/sirius_tuto2_11-03.png!
+
+On the diagram, you can now select the filter _childrenFilter_ and see that only persons with children remain visible.
+
+!./images/sirius_tuto2_11-04.png!
+
 To see the "result":#differences, have a look on the "tag":#tag : @filter@
 
-h3(#Validation). Validation
+h3(#Validation). Validation Rules and Quick Fixes
 
-h3. Semantic Validation Rule
+Validation rules allow the user to evaluate the quality of a model.
 
-h4. Audit
+For example, despite the precondition we have created on the edge creation tool, users can still create circular parental relations between two persons by using the Properties View.
+
+Let's create a _Validation Rule_ to detect this problem.
+
+Right click on _Persons diagram_ and select the menu @New Validation > Validation@. 
+
+!./images/sirius_tuto2_12-01.png!
+
+Set the name 'FamilyValidation' to this _Validation_. Then create a _Semantic Validation Rule_.
+
+!./images/sirius_tuto2_12-02.png!
+
+Set the properties of this rule:
+* *Level*: @Error@
+* *Target Class*: @basicfamily.Person@
+* *Message*: @['Children of '+name+' should not include its father ('+father.name+')'/]@
+
+!./images/sirius_tuto2_12-03.png!
+
+Then create an _Audit_ (a condition corresponding to this rule) with the expression _[not children->includes(father)/]_.
+
+!./images/sirius_tuto2_12-04.png!
+
+To test this rule, introduce an error in ghe model with the Property View: set the father of a Man to its son.
+
+!./images/sirius_tuto2_12-05.png!
+
+Then right-click on the diagram and select the menu @Validate diagram@.
+
+!./images/sirius_tuto2_12-06.png!
+
+The circular father relationship is detected and a decorator (corresponding to the rule level) is displayed on the persons with this problem. A tootip contains the error message.
+
+!./images/sirius_tuto2_12-07.png!
 
 To see the "result":#differences, have a look on the "tag":#tag : @validation@
 
 h4. Fix
 
+_Fixes_ can be provided to the user for solving the problem automatically. 
+
+For example, we can propose to unset one of the two _father_ relations.
+
+Right-click on the _Rule_ and select the menu @New > Fix@.
+
+!./images/sirius_tuto2_13-01.png!
+
+Set the _name_ 'Unset father' to this _Fix_ and create a _Begin_. Then create a _Unset_ and enter _father_ in the _Feature name_.
+
+!./images/sirius_tuto2_13-02.png!
+
+If you open the _Problems View_, you can right-click on one of the errors and select the menu @Quick Fix@.
+
+!./images/sirius_tuto2_13-03.png!
+
+A dialog opens which proposes the available fixes.
+
+!./images/sirius_tuto2_13-04.png!
+
+Select _Unset father_ and click on _Finish_: the father of the selected person is automatically unset and the problem is solved.
+
+!./images/sirius_tuto2_13-05.png!
+
 To see the "result":#differences, have a look on the "tag":#tag : @validation_fix@
 
 h3. Object-Centered Diagram
 
+The _Persons diagram_ is a representation related to the whole model: it displays all the members of the family. This is the reason why it belongs to the Family instance, as you can see in the Model Explorer.
+
+!./images/sirius_tuto2_14-01.png!
+
+With Sirius, you can create a representation on any instance of the model. For example, let's create a person-centered diagram to show only the relationships of a given person.
+
+Right-click on the _persons_ viewpoint and select the menu @New Representation > Diagram Description@.
+
+!./images/sirius_tuto2_14-02.png!
+
+Set these properties to this representation:
+* _Name_: @Relationships diagram@
+* _Domain Class_: @basicfamily.Person@
+
+!./images/sirius_tuto2_14-03.png!
+
+In the _Advanced_ tab, set the **Title Expression** to @['Relations of '+name/]@ in order to customize the name of the diagram with the person's name.
+
+!./images/sirius_tuto2_14-04.png!
+
+Add a _Default Layer_ to this diagram and save the _odesign_ file. Now, you can right click on a person in the _Model Explorer_ and create a new representation of type _Relationships diagram_.
+
+!./images/sirius_tuto2_14-05.png!
+
+The result is a blank diagram, since we have not yet specified its content.
+
 h4(#Container). Container
+
+A _Container_ is a kind of diagram element that can contain other diagram elements.
+
+On the _Relationships diagram_, let's use two containers to represent:
+* The current person (who owns the diagram) with:
+** each children in a list
+** its parents as border nodes
+* The siblings of the current person:
+** each sibling in a list
+
+Right-click on the _Layer_ and select the menu @New Diagram Element > Container@.
+
+!./images/sirius_tuto2_15-01.png!
+
+For this first container, set these properties:
+* _Name_: @Person Container@
+* _Domain Class_: @basicfamilyPerson@
+* _Semantic Candidate Expression_: @var:self@ (the current person)
+* _Children Presentation_: @List@
+
+!./images/sirius_tuto2_15-02.png!
+
+To define the graphical rendering of this container, right-click on it and select the menu @New Style > Gradient@.
+
+!./images/sirius_tuto2_15-03.png!
+
+On this style, set these properties:
+* Label Tab:
+** *Label Size*: @12@
+** *Label Format*: @bold@
+
+!./images/sirius_tuto2_15-04.png!
+
+* Color Tab:
+** *Foreground Color*: @light_green@
+
+!./images/sirius_tuto2_15-05.png!
+
+Save the _odesign_ file and you see a green container appear on the diagram that you have created for a person.
+
+!./images/sirius_tuto2_15-06.png!
 
 To see the "result":#differences, have a look on the "tag":#tag : @container@
 
-h4. Sub Node
+
+h4. Sub Nodes
+
+Now, to display children inside this container, right-click on the container definition and click on the menu @New Diagram Element > Sub Node@.
+
+!./images/sirius_tuto2_16-01.png!
+
+On the _Sub Node_ set these properties:
+* _Id_: @ChildrenNode@
+* _Domain Class_: @basicfamily.Person@
+* _Semantic Candidate Expression_: @feature:children@
+
+!./images/sirius_tuto2_16-02.png!
+
+Then create a style. Note that the kind of style is not important here: for elements in a list, the style is used only to specify the label.
+
+!./images/sirius_tuto2_16-03.png!
+
+Save the _odesign_ file, and now you can see the children listed inside the container.
+
+!./images/sirius_tuto2_16-04.png!
 
 To see the "result":#differences, have a look on the "tag":#tag : @sub_node@
 
+Copy paste _PersonContainer_ to create the container for siblings.
+
+Change these properties on this new container description:
+* Container > _Name_: @SiblingsContainer@
+* Gradient > _Label Size_: @10@
+* Gradient > _Label Expression_: @Siblings@
+* Gradient > _Foreground Color_: @light_yellow@
+
+And these properties on the _Sub Node_:
+* *Id*: @Sibling Node@
+* *Semantic Candidates Expression*: @[parents.children->excluding(self)/]@
+
+!./images/sirius_tuto2_16-05.png!
+
+Save the _odesign_ file, and now you can see the siblings listed inside a second container.
+
+!./images/sirius_tuto2_16-06.png!
+
 h4. Border Node
+
+Now let's add _Border Nodes_ to the first container to display the parents of the current person.
+
+Right-click on _PersonContainer_ and select the menu @New Diagram Element > Border Node@:
+
+!./images/sirius_tuto2_17-01.png!
+
+Set these properties to the border node:
+* _Id_: @ParentNode@
+* _Domain Class_: @basicfamily.Person@
+* _Semantic Candidate Expression_: @feature:parents@
+
+!./images/sirius_tuto2_17-02.png!
+
+Add a _Square_ as style, and set these properties:
+* _Label Position_: @Node@
+* _Color_: @white@
+
+Save the _odesign_ file, and now you can see the parents attached on the border of the first container:
+
+!./images/sirius_tuto2_17-03.png!
 
 To see the "result":#differences, have a look on the "tag":#tag : @border_node@
 
 h4. Edge between containers
 
+Like nodes, _Containers_ can be linked with _Edges_.
+
+Right-click on the _Default_ container and select the menu @New Diagram Element > Relation Based Edge@.
+
+!./images/sirius_tuto2_18-01.png!
+
+Set these properties to the edge:
+
+* _Id_: @SiblingsEdge@
+* _Source Mapping_: @PersonContainer@
+* _Target Mapping_: @SiblingsContainer@
+* _Target Finder Expression_: @var:self@ (the second container represents the current person also)
+
+!./images/sirius_tuto2_18-02.png!
+
+On the style of the edge (automatically created), you can specify the end's decorators.
+
+!./images/sirius_tuto2_18-03.png!
+
+Save the _odesign_ file, and now you can see a link between the two containers.
+
+!./images/sirius_tuto2_18-04.png!
+
 To see the "result":#differences, have a look on the "tag":#tag : @container_edge@
 
 h3(#Double_Click). Double-click
+
+Now we can create a specific diagram for each person. To facilitate the navigation between all these diagrams, let's create a _Double Click_ tool that allows the user to navigate from any person on a diagram to its dedicated diagram.
+
+Go back to the first diagram, right click on the _Section_ in the first _Layer_ and select the menu @New Element Edition > Double Click@.
+
+!./images/sirius_tuto2_19-01.png!
+
+On the *Mappings* property of the _Double Click_ select all the elements of the modeling tool that represent a _Person_ (except the two containers, since it doesn't make sense to navigate to the current diagram).
+
+!./images/sirius_tuto2_19-02.png!
+
+To specify the action of the _Double Click_, right-click on the _Begin_ and select the menu @New Operation > Navigation@.
+
+!./images/sirius_tuto2_19-03.png!
+
+Then set these properties to the _Navigation_ :
+* *Diagram Description*: @Relationships diagram@
+* *Creae if not Existent*: @true@
+
+!./images/sirius_tuto2_19-04.png!
+
+Save the _odesign_ file, close and reopen your diagrams. Now you can double-click on persons to open their corresponding _Relationships diagram_. If this diagram has not been created yet, Sirius will propose to create it.
+
+!./images/sirius_tuto2_19-05.png!
 
 To see the "result":#differences, have a look on the "tag":#tag : @double_click@
 
 h3(#Table). Table
 
-h3. Line
+With Sirius it is also possible to represent model elements with a _Table_.
 
-To see the "result":#differences, have a look on the "tag":#tag : @table_line@
+Let's create a table that lists all the persons, with this information for each:
+* father's name
+* mother's name
+* number of children
 
-h3. Feature Column
+Right-click on the _Viewpoint_ and select the menu @New representation > Edition Table Description@.
+
+!./images/sirius_tuto2_20-01.png!
+
+Set these properties to the table:
+* _Id_: @Persons table@
+* _Domain Class_: @basicfamily.Family@
+
+!./images/sirius_tuto2_20-02.png!
+
+In this table, you need lines to represent the persons. So, right-click on the _Table_ and select the menu @New Table Element > Line@.
+
+!./images/sirius_tuto2_20-03.png!
+
+Set these properties to the line:
+* _Id_: @PersonLine@
+* _Domain Class_: @basicfamily.Person@
+* _Header Label Expression_ (tab _Label_): @feature:name@
+
+!./images/sirius_tuto2_20-04.png!
+
+Save the _odesign_ file then right-click on the _Family_ instance in the _Model Rrowser_ and click on the menu 'New Representation. You can see a new menu 'new Persons table'. 
+
+!./images/sirius_tuto2_20-05.png!
+
+If you select this menu, Sirius creates and opens a table with all the family's members.
+
+!./images/sirius_tuto2_20-06.png!
+
+Now, let's add columns to this table to display more information for each person. So, right-click on the _Table_ and select the menu @New Table Element > Feature Column@.
+
+!./images/sirius_tuto2_20-07.png!
+
+Set these properties to the column:
+* _Id_: @fatherCol@
+* _Feature Name_: @father@
+
+!./images/sirius_tuto2_20-08.png!
+
+Select the _Label_ tab and set these properties:
+* _Header Label Expression_: @Father@
+* _Label Expression_: @[if father.oclIsUndefined() then '' else father.name endif/]@
+
+!./images/sirius_tuto2_20-09.png!
+
+Copy and paste 'fatherCol' then rename @father@ by @mother@ in all the properties.
+
+!./images/sirius_tuto2_20-10.png!
+
+Save the _odesign_ file and see the two new columns.
+
+!./images/sirius_tuto2_20-11.png!
+
+Finally, add a new _Feature Column_ to display the number of children.
+
+Set these properties to the column:
+* _Id_: @childrenCol@
+* _Feature Name_: @children@
+
+!./images/sirius_tuto2_20-12.png!
+
+Select the _Label_ tab and set these properties:
+* _Header Label Expression_: @Children@
+* _Label Expression_: @[children->size()/]@
+
+!./images/sirius_tuto2_20-13.png!
+
+Save the _odesign_ file and see the third column.
+
+!./images/sirius_tuto2_20-14.png!
+
 
 To see the "result":#differences, have a look on the "tag":#tag : @table_col@
