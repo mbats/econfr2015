@@ -15,6 +15,7 @@ This tutorial explains how to use advanced features of Sirius:
 * "Container with Sub Nodes and Bordered Nodes":#Container
 * "Navigation through Double-click":#Double_Click
 * "Table":#Table
+* "Java Services":#Service
 
 The instructions start from a basic modeling tool that is the result of the Sirius "Starter Tutorial":https://wiki.eclipse.org/Sirius/Tutorials/4MinTutorial. This starting modeling tool just allows you to create diagrams which represent Men and Women linked by parental relationships. From this diagram you can also use the palette to create Men.
 
@@ -709,4 +710,81 @@ Save the _odesign_ file and see the third column.
 !./images/sirius_tuto2_20-14.png!
 
 To see the "result":#differences, have a look on the "tag":#tag : @table_col@
+
+h3(#Service). Java Services
+
+When _Acceleo 3_ expressions become complex, you should write _Java Services_ instead.
+
+For example, let's create a _Java Service_ to compute the number of cousins and display this information in the table.
+
+Create a basic _Java Class_ named @FamilyServices@ in your _Viewpoint Specification Project_ (which contains the _odesign_ file). Create a method named @getCousinsNumber@.
+
+!./images/sirius_tuto2_21-01.png!
+
+You can use the code below to complete this class:
+
+<pre>
+package org.eclipse.sirius.sample.basicfamily.design;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.eclipse.sirius.sample.basicfamily.Person;
+
+public class FamilyServices {
+	
+	public int getCousinsNumber(Person person) {
+		List<Person> cousins=new ArrayList<Person>();
+		List<Person> parents=person.getParents();
+			
+		for (Person parent: parents) {
+			for (Person grandParent: parent.getParents()) {
+				for (Person uncleOrAunt: grandParent.getChildren()) {
+					if (!parents.contains(uncleOrAunt)) {
+						for (Person cousin:uncleOrAunt.getChildren()) {
+							if (!cousins.contains(cousin))
+								cousins.add(cousin);
+						}
+					}
+				}
+			}
+		}
+		return cousins.size();	
+	}
+}
+</pre>
+
+To be able to use the Java methods as _Services_, the class must be declared in the _odesign_ file.
+
+Right-click on the _Viewpoint_ then select the menu @New Extension > Java Extension@.
+
+!./images/sirius_tuto2_21-02.png!
+
+Then, set the _Qualified Class Name_ property to @org.eclipse.sirius.sample.basicfamily.design.FamilyServices@.
+
+!./images/sirius_tuto2_21-03.png!
+
+To use the service _getNbCousins_ in the table, create a new _Feature Column_ named @cousinsCol@ and invoke the service in the expression (@service:getCousinsNumber@).
+
+!./images/sirius_tuto2_21-04.png!
+
+With Sirius 2.0, Java services can't be tested from the same runtime: you need to launch a **new runtime**.
+
+Create and launch a new _Run Configuration_ of type _Eclipse Application_ and set the arguments @-XX:MaxPermSize=256m@.
+
+!./images/sirius_tuto2_21-05.png!
+
+In the new runtime, import the _basicfamily.sample_ project and create a diagram and a table on Family.
+
+In this table, you can see a new column _Cousins_ containing the number of cousins for each person (0). Use the diagram to create more persons such as some of them have cousins: Sirius will automatically update the number of cousins in the table.
+
+!./images/sirius_tuto2_21-06.png!
+
+
+
+
+
+
+
+
 
