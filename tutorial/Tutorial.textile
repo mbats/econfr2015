@@ -174,7 +174,7 @@ If you want to skip some steps, you can get directly the result of a step thanks
 * from Obeo Designer with EGit: Select the project @org.eclipse.sirius.sample.basicfamily.design@ from the Model Explorer and right click to select _Team > Reset > Tags_. Select a tag and in the reset type the _*Hard*_ radio button: 
 !./images/sirius_tuto2_03-05.png!
 
-If you have a look to the odesign file, it is updated with the expected changes.
+If you have a look to the _odesign_ file, it is updated with the expected changes.
 
 h2. Start the tutorial
 
@@ -431,7 +431,7 @@ Add a _Style Customization (by expression)_ for the _Workspace Image_ correspond
 
 Do the same with the Woman image and the expression @['Grandma '+name/]@.
 
-Save the odesign file and see the result on the diagram.
+Save the _odesign_ file and see the result on the diagram.
 
 !./images/sirius_tuto2_09-07.png!
 
@@ -511,7 +511,7 @@ Set the name 'FamilyValidation' to this _Validation_. Then create a _Semantic Va
 
 Set the properties of this rule:
 * *Level*: @Error@
-* *Target Class*: @basicFamily.Person@
+* *Target Class*: @basicfamily.Person@
 * *Message*: @['Children of '+name+' should not include its father ('+father.name+')'/]@
 
 !./images/sirius_tuto2_12-03.png!
@@ -576,7 +576,7 @@ Right-click on the _persons_ viewpoint and select the menu 'New Representation >
 
 Set these properties to this representation:
 * **Name**: @Relationships diagram@
-* **Domain Class**: @basicFamily.Person@
+* **Domain Class**: @basicfamily.Person@
 
 !./images/sirius_tuto2_14-03.png!
 
@@ -584,7 +584,7 @@ In the _Advanced_ tab, set the **Title Expression** to @['Relations of '+name/]@
 
 !./images/sirius_tuto2_14-04.png!
 
-Add a _Default Layer_ to this diagram and save the odesign file. Now, you can right click on a person in the _Model Explorer_ and create a new representation of type _Relationships diagram_.
+Add a _Default Layer_ to this diagram and save the _odesign_ file. Now, you can right click on a person in the _Model Explorer_ and create a new representation of type _Relationships diagram_.
 
 !./images/sirius_tuto2_14-05.png!
 
@@ -607,7 +607,7 @@ Right-click on the _Layer_ and select the menu 'New Diagram Element > Container'
 
 For this first container, set these properties:
 * *Name*: @Person Container@
-* *Domain Class*: @basicFamilyPerson@
+* *Domain Class*: @basicfamilyPerson@
 * *Semantic Candidate Expression*: @var:self@ (the current person)
 * *Children Presentation*: @List@
 
@@ -629,7 +629,7 @@ On this style, set these properties:
 
 !./images/sirius_tuto2_15-05.png!
 
-Save the odesign file and you see a green container appear on the diagram that you have created for a person.
+Save the _odesign_ file and you see a green container appear on the diagram that you have created for a person.
 
 !./images/sirius_tuto2_15-06.png!
 
@@ -644,7 +644,7 @@ Now, to display children inside this container, right-click on the container def
 
 On the _Sub Node_ set these properties:
 * *Id*: @ChildrenNode@
-* *Domain Class*: @basicFamily.Person@
+* *Domain Class*: @basicfamily.Person@
 * *Semantic Candidate Expression*: @feature:children@
 
 !./images/sirius_tuto2_16-02.png!
@@ -653,7 +653,7 @@ Then create a style. Note that the kind of style is not important here: for elem
 
 !./images/sirius_tuto2_16-03.png!
 
-Save the odesign file, and now you can see the children listed inside the container.
+Save the _odesign_ file, and now you can see the children listed inside the container.
 
 !./images/sirius_tuto2_16-04.png!
 
@@ -673,7 +673,7 @@ And these properties on the _Sub Node_:
 
 !./images/sirius_tuto2_16-05.png!
 
-Save the odesign file, and now you can see the siblings listed inside a second container.
+Save the _odesign_ file, and now you can see the siblings listed inside a second container.
 
 !./images/sirius_tuto2_16-06.png!
 
@@ -696,7 +696,7 @@ Add a _Square_ as style, and set these properties:
 * *Label Position*: @Node@
 * *Color*: @white@
 
-Save the odesign file, and now you can see the parents attached on the border of the first container:
+Save the _odesign_ file, and now you can see the parents attached on the border of the first container:
 
 !./images/sirius_tuto2_17-03.png!
 
@@ -723,7 +723,7 @@ On the style of the edge (automatically created), you can specify the end's deco
 
 !./images/sirius_tuto2_18-03.png!
 
-Save the odesign file, and now you can see a link between the two containers.
+Save the _odesign_ file, and now you can see a link between the two containers.
 
 !./images/sirius_tuto2_18-04.png!
 
@@ -751,7 +751,7 @@ Then set these properties to the _Navigation_ :
 
 !./images/sirius_tuto2_19-04.png!
 
-Save the odesign file, close and reopen your diagrams. Now you can double-click on persons to open their corresponding _Relationships diagram_. If this diagram has not been created yet, Sirius will propose to create it.
+Save the _odesign_ file, close and reopen your diagrams. Now you can double-click on persons to open their corresponding _Relationships diagram_. If this diagram has not been created yet, Sirius will propose to create it.
 
 !./images/sirius_tuto2_19-05.png!
 
@@ -759,10 +759,83 @@ To see the "result":#differences, have a look on the "tag":#tag : @double_click@
 
 h3(#Table). Table
 
-h4. Line
+With Sirius it is also possible to represent model elements with a table.
 
-To see the "result":#differences, have a look on the "tag":#tag : @table_line@
+Let's create a table that lists all the persons with this information:
+* the name of the father
+* the name of the mother
+* the number of children
 
-h4. Feature Column
+Right-click on the _Viewpoint_ and select the menu 'New representation > Edition Table Description'.
+
+!./images/sirius_tuto2_20-01.png!
+
+Set these properties to the table:
+* **Id**: @Persons table@
+* **Domain Class**: @basicfamily.Family@
+
+!./images/sirius_tuto2_20-02.png!
+
+In this table, you need lines to represent the persons. So, right-click on the _Table_ and select the menu 'New Table Element > Line'.
+
+!./images/sirius_tuto2_20-03.png!
+
+Set these properties to the line:
+* **Id**: @PersonLine@
+* **Domain Class**: @basicfamily.Person@
+* **Header Label Expression** (tab **Label**): feature:name
+
+!./images/sirius_tuto2_20-04.png!
+
+Save the _odesign_ file then right-click on the _Family_ instance in the _Model Rrowser_ and click on the menu 'New Representation. You can see a new menu 'new Persons table'. 
+
+!./images/sirius_tuto2_20-05.png!
+
+If you select this menu, Sirius creates and opens a table with all the family's members.
+
+!./images/sirius_tuto2_20-06.png!
+
+Now, let's add columns to this table to display more information for each person. So, right-click on the _Table_ and select the menu 'New Table Element > Feature Column'.
+
+!./images/sirius_tuto2_20-07.png!
+
+Set these properties to the column:
+* **Id**: @fatherCol@
+* **Feature Name**: @father@
+
+!./images/sirius_tuto2_20-08.png!
+
+Select the _Label_ tab and set these properties:
+* **Header Label Expression**: @Father@
+* **label Expression**: @[if father.oclIsUndefined() then '' else father.name endif/]@
+
+!./images/sirius_tuto2_20-09.png!
+
+Copy and paste 'fatherCol' then rename @father@ by @mother@ in all the properties.
+
+!./images/sirius_tuto2_20-10.png!
+
+Save the _odesign_ file and see the two new columns.
+
+!./images/sirius_tuto2_20-11.png!
+
+Finally, add a new _Feature Column_ to display the number of children.
+
+Set these properties to the column:
+* **Id**: @childrenCol@
+* **Feature Name**: @children@
+
+!./images/sirius_tuto2_20-12.png!
+
+Select the _Label_ tab and set these properties:
+* **Header Label Expression**: @Children@
+* **label Expression**: @[children->size()/]@
+
+!./images/sirius_tuto2_20-13.png!
+
+Save the _odesign_ file and see the third column.
+
+!./images/sirius_tuto2_20-14.png!
+
 
 To see the "result":#differences, have a look on the "tag":#tag : @table_col@
