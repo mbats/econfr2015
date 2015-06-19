@@ -662,10 +662,10 @@ To see the "result":#differences, have a look on the "tag":#tag : @sub_node@
 Copy paste _PersonContainer_ to create the container for siblings.
 
 Change these properties on this new container description:
-* Container > *Name*: @_SiblingsContainer_@
-* Gradient > *Label Size*: @10@
-* Gradient > *Label Expression*: @Siblings@
-* Gradient > *Foreground Color*: @light_yellow@
+* Container > _Name_: @SiblingsContainer@
+* Gradient > _Label Size_: @10@
+* Gradient > _Label Expression_: @Siblings@
+* Gradient > _Foreground Color_: @light_yellow@
 
 And these properties on the _Sub Node_:
 * *Id*: @Sibling Node@
@@ -807,7 +807,7 @@ Set these properties to the column:
 
 Select the _Label_ tab and set these properties:
 * _Header Label Expression_: @Father@
-* _label Expression_: @[if father.oclIsUndefined() then '' else father.name endif/]@
+* _Label Expression_: @[if father.oclIsUndefined() then '' else father.name endif/]@
 
 !./images/sirius_tuto2_20-09.png!
 
@@ -829,7 +829,7 @@ Set these properties to the column:
 
 Select the _Label_ tab and set these properties:
 * _Header Label Expression_: @Children@
-* _label Expression_: @[children->size()/]@
+* _Label Expression_: @[children->size()/]@
 
 !./images/sirius_tuto2_20-13.png!
 
