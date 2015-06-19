@@ -761,12 +761,12 @@ h3(#Table). Table
 
 With Sirius it is also possible to represent model elements with a table.
 
-Let's create a table that lists all the persons with this information:
-* the name of the father
-* the name of the mother
-* the number of children
+Let's create a table that lists all the persons, with this information for each:
+* father's name
+* mother's name
+* number of children
 
-Right-click on the _Viewpoint_ and select the menu 'New representation > Edition Table Description'.
+Right-click on the _Viewpoint_ and select the menu @New representation > Edition Table Description@.
 
 !./images/sirius_tuto2_20-01.png!
 
@@ -783,7 +783,7 @@ In this table, you need lines to represent the persons. So, right-click on the _
 Set these properties to the line:
 * **Id**: @PersonLine@
 * **Domain Class**: @basicfamily.Person@
-* **Header Label Expression** (tab **Label**): feature:name
+* **Header Label Expression** (tab **Label**): @feature:name@
 
 !./images/sirius_tuto2_20-04.png!
 
