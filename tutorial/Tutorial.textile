@@ -759,10 +759,10 @@ To see the "result":#differences, have a look on the "tag":#tag : @double_click@
 
 h3(#Table). Table
 
-h3. Line
+h4. Line
 
 To see the "result":#differences, have a look on the "tag":#tag : @table_line@
 
-h3. Feature Column
+h4. Feature Column
 
 To see the "result":#differences, have a look on the "tag":#tag : @table_col@
