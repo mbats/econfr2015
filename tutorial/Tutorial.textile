@@ -564,15 +564,116 @@ To see the "result":#differences, have a look on the "tag":#tag : @validation_fi
 
 h3. Object-Centered Diagram
 
+The _Persons diagram_ is a representation related to the whole model: it displays all the members of the family. This is the reason why it belongs to the Family instance, as you can see in the Model Explorer.
+
+!./images/sirius_tuto2_14-01.png!
+
+With Sirius, you can create a representation on any instance of the model. For example, let's create a person-centered diagram to show only the relationships of a given person.
+
+Right-click on the _persons_ viewpoint and select the menu 'New Representation > Diagram Description'.
+
+!./images/sirius_tuto2_14-02.png!
+
+Set the _Name_ of this representation to 'Relationships diagram' and the _Domain Class_ to _basicFamily.Person_.
+
+!./images/sirius_tuto2_14-03.png!
+
+Add a _Default Layer_ to this diagram and save the odesign file. Now, you can right click on a person in the _Model Explorer_ and create a new representation of type _Relationships diagram_.
+
+!./images/sirius_tuto2_14-04.png!
+
+The result is a blank diagram, since we have not yet specified its content.
+
 h4(#Container). Container
+
+A _Container_ is a kind of diagram element that can contain other diagram elements.
+
+On the _Relationships diagram_, let's use two containers to represent:
+* The current person (who owns the diagram) with:
+** each children in a list
+** its parents as border nodes
+* The siblings of the current person:
+** each sibling in a list
+
+Right-click on the _Layer_ and select the menu 'New Diagram Element > Container'.
+
+!./images/sirius_tuto2_15-01.png!
+
+For this first container, set these properties:
+* Name: Person Container
+* Domain Class: basicFamilyPerson
+* Semantic Candidate Expression: var:self (the current person)
+* Children Presentation: List
+
+!./images/sirius_tuto2_15-02.png!
+
+To define the graphical rendering of this container, right-click on it and select the menu 'New Style > Gradient'.
+
+!./images/sirius_tuto2_15-03.png!
+
+On this style, set these properties:
+* Label Tab:
+** Label Size: 12
+** Label Format: bold
+
+!./images/sirius_tuto2_15-04.png!
+
+* Color Tab:
+** Foreground Color: light_green
+
+!./images/sirius_tuto2_15-05.png!
+
+Save the odesign file and you see a green container appear on the diagram that you have created for a person.
+
+!./images/sirius_tuto2_15-06.png!
 
 To see the "result":#differences, have a look on the "tag":#tag : @container@
 
-h4. Sub Node
+
+h4. Sub Nodes
+
+Now, to display children inside this container, right-click on the container definition and click on the menu 'New Diagram Element > Sub Node'.
+
+!./images/sirius_tuto2_16-01.png!
+
+On the _Sub Node_ set these properties:
+* Id: ChildrenNode
+* Domain Class: basicFamily.Person
+* Semantic Candidate Expression: feature:children
+
+!./images/sirius_tuto2_16-02.png!
+
+Then create a style. Note that the kind of style is not important here: for elements in a list, the style is used only to specify the label.
+
+!./images/sirius_tuto2_16-03.png!
+
+Save the odesign file, and now you can see the children listed inside the container.
+
+!./images/sirius_tuto2_16-04.png!
 
 To see the "result":#differences, have a look on the "tag":#tag : @sub_node@
 
+Copy paste _PersonContainer_ to create the container for siblings.
+
+Change these properties on this new container description:
+* Container > *Name*: _SiblingsContainer_
+* Gradient > *Label Size*: 10
+* Gradient > *Label Expression*: Siblings
+* Gradient > *Foreground Color*: light_yellow
+
+And these properties on the _Sub Node_:
+* *Id*: Sibling Node
+* *Semantic Candidates Expression*: [parents.children->excluding(self)/]
+
+!./images/sirius_tuto2_16-05.png!
+
+Save the odesign file, and now you can see the siblings listed inside a second container.
+
+!./images/sirius_tuto2_16-06.png!
+
+
 h4. Border Node
+
 
 To see the "result":#differences, have a look on the "tag":#tag : @border_node@
 
