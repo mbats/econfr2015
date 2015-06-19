@@ -510,9 +510,9 @@ Set the name 'FamilyValidation' to this _Validation_. Then create a _Semantic Va
 !./images/sirius_tuto2_12-02.png!
 
 Set the properties of this rule:
-* Level: Error
-* Target Class: basicFamily.Person
-* Message: ['Children of '+name+' should not include its father ('+father.name+')'/]
+* *Level*: @Error@
+* *Target Class*: @basicFamily.Person@
+* *Message*: @['Children of '+name+' should not include its father ('+father.name+')'/]@
 
 !./images/sirius_tuto2_12-03.png!
 
@@ -600,10 +600,10 @@ Right-click on the _Layer_ and select the menu 'New Diagram Element > Container'
 !./images/sirius_tuto2_15-01.png!
 
 For this first container, set these properties:
-* Name: Person Container
-* Domain Class: basicFamilyPerson
-* Semantic Candidate Expression: var:self (the current person)
-* Children Presentation: List
+* *Name*: @Person Container@
+* *Domain Class*: @basicFamilyPerson@
+* *Semantic Candidate Expression*: @var:self@ (the current person)
+* *Children Presentation*: @List@
 
 !./images/sirius_tuto2_15-02.png!
 
@@ -613,13 +613,13 @@ To define the graphical rendering of this container, right-click on it and selec
 
 On this style, set these properties:
 * Label Tab:
-** Label Size: 12
-** Label Format: bold
+** *Label Size*: @12@
+** *Label Format*: @bold@
 
 !./images/sirius_tuto2_15-04.png!
 
 * Color Tab:
-** Foreground Color: light_green
+** *Foreground Color*: @light_green@
 
 !./images/sirius_tuto2_15-05.png!
 
@@ -637,9 +637,9 @@ Now, to display children inside this container, right-click on the container def
 !./images/sirius_tuto2_16-01.png!
 
 On the _Sub Node_ set these properties:
-* Id: ChildrenNode
-* Domain Class: basicFamily.Person
-* Semantic Candidate Expression: feature:children
+* *Id*: @ChildrenNode@
+* *Domain Class*: @basicFamily.Person@
+* *Semantic Candidate Expression*: @feature:children@
 
 !./images/sirius_tuto2_16-02.png!
 
@@ -656,14 +656,14 @@ To see the "result":#differences, have a look on the "tag":#tag : @sub_node@
 Copy paste _PersonContainer_ to create the container for siblings.
 
 Change these properties on this new container description:
-* Container > *Name*: _SiblingsContainer_
-* Gradient > *Label Size*: 10
-* Gradient > *Label Expression*: Siblings
-* Gradient > *Foreground Color*: light_yellow
+* Container > *Name*: @_SiblingsContainer_@
+* Gradient > *Label Size*: @10@
+* Gradient > *Label Expression*: @Siblings@
+* Gradient > *Foreground Color*: @light_yellow@
 
 And these properties on the _Sub Node_:
-* *Id*: Sibling Node
-* *Semantic Candidates Expression*: [parents.children->excluding(self)/]
+* *Id*: @Sibling Node@
+* *Semantic Candidates Expression*: @[parents.children->excluding(self)/]@
 
 !./images/sirius_tuto2_16-05.png!
 
@@ -671,13 +671,56 @@ Save the odesign file, and now you can see the siblings listed inside a second c
 
 !./images/sirius_tuto2_16-06.png!
 
-
 h4. Border Node
 
+Now let's add _Border Nodes_ to the first container to display the parents of the current person.
+
+Right-click on _PersonContainer_ and select the menu 'New Diagram Element > Border Node':
+
+!./images/sirius_tuto2_17-01.png!
+
+Set these properties to the border node:
+* *Id*: @ParentNode@
+* *Domain Class*: @basicfamily.Person@
+* *Semantic Candidate Expression*: @feature:parents@
+
+!./images/sirius_tuto2_17-02.png!
+
+Add a _Square_ as style, and set these properties:
+* *Label Position*: @Node@
+* *Color*: @white@
+
+Save the odesign file, and now you can see the parents attached on the border of the first container:
+
+!./images/sirius_tuto2_17-03.png!
 
 To see the "result":#differences, have a look on the "tag":#tag : @border_node@
 
 h4. Edge between containers
+
+Like nodes, _Containers_ can be linked with _Edges_.
+
+Right-click on the _Default_ container and select the menu 'New Diagram Element > Relation Based Edge'.
+
+!./images/sirius_tuto2_18-01.png!
+
+Set these properties to the edge:
+
+* *Id*: @SiblingsEdge@
+* *Source Mapping*: @PersonContainer@
+* *Target Mapping*: @SiblingsContainer@
+* *Target Finder Expression*: @var:self@ (the second container represents the current person also)
+
+!./images/sirius_tuto2_18-02.png!
+
+On the style of the edge (automatically created), you can specify the end's decorators.
+
+!./images/sirius_tuto2_18-03.png!
+
+Save the odesign file, and now you can see a link between the two containers.
+
+!./images/sirius_tuto2_18-04.png!
+
 
 To see the "result":#differences, have a look on the "tag":#tag : @container_edge@
 
