@@ -75,16 +75,16 @@ The domain model is implemented with several EMF projects that you need to impor
 Import these projects from the Git repository : @File > Import...@
 !./images/sirius_tuto2_00-01.png!
 
-Select _Git > Projects from Git_
+Select @Git > Projects from Git@
 !./images/sirius_tuto2_00-02.png!
 
-Select _Existing local repository_
+Select @Existing local repository@
 !./images/sirius_tuto2_01-01.png!
 
 Select @econfr2015@
 !./images/sirius_tuto2_01-02.png!
 
-Select _Import existing Eclipse projects_
+Select @Import existing Eclipse projects@
 !./images/sirius_tuto2_01-03.png!
 
 And select only the following projects:
@@ -108,7 +108,7 @@ To launch a new eclipse application click on _Run / Run Configurations_ and doub
 
 h4. Select the Sirius perspective
 
-In the new Eclipse runtime, select the Sirius perspective.
+In the new Eclipse runtime, select the _Sirius_ perspective.
 
 !https://wiki.eclipse.org/images/8/8f/Sirius_4mtuto_06.png!
 
@@ -171,7 +171,7 @@ h4(#tag). Go directly to a specified tag
 
 If you want to skip some steps, you can get directly the result of a step thanks to: @git reset --hard xxx@. For example, when you are on the @initial_state@ you can go directly to the result of the _Creation_ step:
 * from the command line: @git reset --hard creation@
-* from Obeo Designer with EGit: Select the project @org.eclipse.sirius.sample.basicfamily.design@ from the Model Explorer and right click to select _Team > Reset > Tags_. Select a tag and in the reset type the _*Hard*_ radio button: 
+* from Obeo Designer with EGit: Select the project @org.eclipse.sirius.sample.basicfamily.design@ from the Model Explorer and right click to select @Team > Reset > Tags@. Select a tag and in the reset type the _*Hard*_ radio button: 
 !./images/sirius_tuto2_03-05.png!
 
 If you have a look to the _odesign_ file, it is updated with the expected changes.
@@ -183,10 +183,10 @@ h3. Creation tool
 The first step of this tutorial consists in completing the basic modeler with a tool to create _Women_ also.
 
 Copy and paste the tool _CreateMan_, then replace Man by _Woman_:
-* in the *Id* of the tool
-* in the *Node Mappings* of the tool (use the wizard to select WomanNode)  
-* in the *Create Instance* operation (under the Begin section)
-* in the *Value Expression* of the Set @name@ (under the Create instance)
+* in the _Id_ of the tool
+* in the _Node Mappings_ of the tool (use the wizard to select _WomanNode_)  
+* in the _Create Instance_ operation (under the _Begin_ section)
+* in the _Value Expression_ of the _Set_ (under the _Create_ instance)
 
 !./images/sirius_tuto2_03-01.png!
 
@@ -408,7 +408,7 @@ Right click on the _Style Customization_ and select the menu @New Customization@
 
 !./images/sirius_tuto2_09-03.png!
 
-On this _Property Customization_, select the two Workspace Images for the _Applied On_ field (they hold the label to change), enter _labelColor_ in the Property Name field, then select the _gray_ color.
+On this _Property Customization_, select the two _Workspace Images_ for the _Applied On_ field (they hold the label to change), enter @labelColor@ in the _Property Name_ field, then select the @gray@ color.
 
 Note that you can use the automatic-completion to select the applicable property.
 
