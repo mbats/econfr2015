@@ -574,13 +574,19 @@ Right-click on the _persons_ viewpoint and select the menu 'New Representation >
 
 !./images/sirius_tuto2_14-02.png!
 
-Set the _Name_ of this representation to 'Relationships diagram' and the _Domain Class_ to _basicFamily.Person_.
+Set these properties to this representation:
+* **Name**: @Relationships diagram@
+* **Domain Class**: @basicFamily.Person@
 
 !./images/sirius_tuto2_14-03.png!
 
-Add a _Default Layer_ to this diagram and save the odesign file. Now, you can right click on a person in the _Model Explorer_ and create a new representation of type _Relationships diagram_.
+In the _Advanced_ tab, set the **Title Expression** to @['Relations of '+name/]@ in order to customize the name of the diagram with the person's name.
 
 !./images/sirius_tuto2_14-04.png!
+
+Add a _Default Layer_ to this diagram and save the odesign file. Now, you can right click on a person in the _Model Explorer_ and create a new representation of type _Relationships diagram_.
+
+!./images/sirius_tuto2_14-05.png!
 
 The result is a blank diagram, since we have not yet specified its content.
 
@@ -721,10 +727,33 @@ Save the odesign file, and now you can see a link between the two containers.
 
 !./images/sirius_tuto2_18-04.png!
 
-
 To see the "result":#differences, have a look on the "tag":#tag : @container_edge@
 
 h3(#Double_Click). Double-click
+
+Now we can create a specific diagram for each person. To facilitate the navigation between all these diagrams, let's create a _Double Click_ tool that allows the user to navigate from any person on a diagram to its dedicated diagram.
+
+Go back to the first diagram, right click on the _Section_ in the first _Layer_ and select the menu 'New Element Edition > Double Click'.
+
+!./images/sirius_tuto2_19-01.png!
+
+On the *Mappings* property of the _Double Click_ select all the elements of the modeling tool that represent a _Person_ (except the two containers, since it doesn't make sense to navigate to the current diagram).
+
+!./images/sirius_tuto2_19-02.png!
+
+To specify the action of the _Double Click_, right-click on the _Begin_ and select the menu 'New Operation > Navigation'.
+
+!./images/sirius_tuto2_19-03.png!
+
+Then set these properties to the _Navigation_ :
+* *Diagram Description*: @Relationships diagram@
+* *Creae if not Existent*: @true@
+
+!./images/sirius_tuto2_19-04.png!
+
+Save the odesign file, close and reopen your diagrams. Now you can double-click on persons to open their corresponding _Relationships diagram_. If this diagram has not been created yet, Sirius will propose to create it.
+
+!./images/sirius_tuto2_19-05.png!
 
 To see the "result":#differences, have a look on the "tag":#tag : @double_click@
 
