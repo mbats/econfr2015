@@ -23,6 +23,13 @@
               <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:0"/>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool_1:DoubleClickDescription" name="PersonDoubleClick" mappings="//@ownedViewpoints[name='persons']/@ownedRepresentations[name='Relationships%20diagram']/@defaultLayer/@containerMappings[name='Person%20Container']/@borderedNodeMappings[name='ParentNode'] //@ownedViewpoints[name='persons']/@ownedRepresentations[name='Relationships%20diagram']/@defaultLayer/@containerMappings[name='Person%20Container']/@subNodeMappings[name='ChildrenNode'] //@ownedViewpoints[name='persons']/@ownedRepresentations[name='Persons%20diagram']/@additionalLayers[name='Men']/@nodeMappings[name='ManNode'] //@ownedViewpoints[name='persons']/@ownedRepresentations[name='Relationships%20diagram']/@defaultLayer/@containerMappings[name='Siblings%20Container']/@subNodeMappings[name='Sibling%20Node'] //@ownedViewpoints[name='persons']/@ownedRepresentations[name='Persons%20diagram']/@additionalLayers[name='Women']/@nodeMappings[name='WomanNode']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='persons']/@ownedRepresentations[name='Relationships%20diagram']"/>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
         <customization>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[children->size()=0/]">
@@ -42,7 +49,7 @@
         </customization>
       </defaultLayer>
       <additionalLayers name="Men" activeByDefault="true">
-        <nodeMappings name="ManNode" labelDirectEdit="//@ownedViewpoints[name='persons']/@ownedRepresentations[name='Persons%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editName']" semanticCandidatesExpression="feature:members" domainClass="basicfamily.Man">
+        <nodeMappings name="ManNode" labelDirectEdit="//@ownedViewpoints[name='persons']/@ownedRepresentations[name='Persons%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editName']" semanticCandidatesExpression="feature:members" doubleClickDescription="//@ownedViewpoints[name='persons']/@ownedRepresentations[name='Persons%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='PersonDoubleClick']" domainClass="basicfamily.Man">
           <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="4" resizeKind="NSEW" workspacePath="/org.eclipse.sirius.sample.basicfamily.design/icons/man.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -105,7 +112,7 @@
         </toolSections>
       </additionalLayers>
       <additionalLayers name="Women" activeByDefault="true">
-        <nodeMappings name="WomanNode" labelDirectEdit="//@ownedViewpoints[name='persons']/@ownedRepresentations[name='Persons%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editName']" semanticCandidatesExpression="feature:members" domainClass="basicfamily.Woman">
+        <nodeMappings name="WomanNode" labelDirectEdit="//@ownedViewpoints[name='persons']/@ownedRepresentations[name='Persons%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editName']" semanticCandidatesExpression="feature:members" doubleClickDescription="//@ownedViewpoints[name='persons']/@ownedRepresentations[name='Persons%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='PersonDoubleClick']" domainClass="basicfamily.Woman">
           <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="4" resizeKind="NSEW" workspacePath="/org.eclipse.sirius.sample.basicfamily.design/icons/woman.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -179,14 +186,14 @@
           </style>
         </edgeMappings>
         <containerMappings name="Person Container" semanticCandidatesExpression="var:self" domainClass="basicfamily.Person" childrenPresentation="List">
-          <borderedNodeMappings name="ParentNode" semanticCandidatesExpression="feature:parents" domainClass="basicfamily.Person">
+          <borderedNodeMappings name="ParentNode" semanticCandidatesExpression="feature:parents" doubleClickDescription="//@ownedViewpoints[name='persons']/@ownedRepresentations[name='Persons%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='PersonDoubleClick']" domainClass="basicfamily.Person">
             <style xsi:type="style:SquareDescription" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </style>
           </borderedNodeMappings>
-          <subNodeMappings name="ChildrenNode" semanticCandidatesExpression="feature:children" domainClass="basicfamily.Person">
+          <subNodeMappings name="ChildrenNode" semanticCandidatesExpression="feature:children" doubleClickDescription="//@ownedViewpoints[name='persons']/@ownedRepresentations[name='Persons%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='PersonDoubleClick']" domainClass="basicfamily.Person">
             <style xsi:type="style:SquareDescription" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -201,7 +208,7 @@
           </style>
         </containerMappings>
         <containerMappings name="Siblings Container" semanticCandidatesExpression="var:self" domainClass="basicfamily.Person" childrenPresentation="List">
-          <subNodeMappings name="Sibling Node" semanticCandidatesExpression="[parents.children->excluding(self)/]" domainClass="basicfamily.Person">
+          <subNodeMappings name="Sibling Node" semanticCandidatesExpression="[parents.children->excluding(self)/]" doubleClickDescription="//@ownedViewpoints[name='persons']/@ownedRepresentations[name='Persons%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='PersonDoubleClick']" domainClass="basicfamily.Person">
             <style xsi:type="style:SquareDescription" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
