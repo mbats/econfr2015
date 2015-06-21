@@ -168,5 +168,17 @@
         </toolSections>
       </additionalLayers>
     </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Relationships diagram" titleExpression="['Relations of '+name/]" domainClass="basicfamily.Person">
+      <defaultLayer name="Default">
+        <containerMappings name="Person Container" semanticCandidatesExpression="var:self" domainClass="basicfamily.Person" childrenPresentation="List">
+          <style xsi:type="style:FlatContainerStyleDescription" labelSize="12" labelFormat="bold">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+          </style>
+        </containerMappings>
+      </defaultLayer>
+    </ownedRepresentations>
   </ownedViewpoints>
 </description:Group>
