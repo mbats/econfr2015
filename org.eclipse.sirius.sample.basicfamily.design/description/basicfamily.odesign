@@ -171,6 +171,13 @@
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Relationships diagram" titleExpression="['Relations of '+name/]" domainClass="basicfamily.Person">
       <defaultLayer name="Default">
         <containerMappings name="Person Container" semanticCandidatesExpression="var:self" domainClass="basicfamily.Person" childrenPresentation="List">
+          <subNodeMappings name="ChildrenNode" semanticCandidatesExpression="feature:children" domainClass="basicfamily.Person">
+            <style xsi:type="style:SquareDescription" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </subNodeMappings>
           <style xsi:type="style:FlatContainerStyleDescription" labelSize="12" labelFormat="bold">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
