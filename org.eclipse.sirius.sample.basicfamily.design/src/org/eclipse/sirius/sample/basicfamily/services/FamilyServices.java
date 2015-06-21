@@ -10,12 +10,29 @@
  */
 package org.eclipse.sirius.sample.basicfamily.services;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.sirius.sample.basicfamily.Person;
 
 public class FamilyServices {
 
 	public int getCousinsNumber(Person person) {
-		// TODO Complete the getCousinsNumber service
-		return 0;
+		List<Person> cousins = new ArrayList();
+		List<Person> parents = person.getParents();
+
+		for (Person parent : parents) {
+			for (Person grandParent : parent.getParents()) {
+				for (Person uncleOrAunt : grandParent.getChildren()) {
+					if (!parents.contains(uncleOrAunt)) {
+						for (Person cousin : uncleOrAunt.getChildren()) {
+							if (!cousins.contains(cousin))
+								cousins.add(cousin);
+						}
+					}
+				}
+			}
+		}
+		return cousins.size();
 	}
 }

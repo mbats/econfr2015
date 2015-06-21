@@ -229,6 +229,8 @@
       <ownedColumnMappings name="fatherCol" headerLabelExpression="Father" featureName="father" labelExpression="[if father.oclIsUndefined() then '' else father.name endif/]"/>
       <ownedColumnMappings name="motherCol" headerLabelExpression="Mother" featureName="mother" labelExpression="[if mother.oclIsUndefined() then '' else mother.name endif/]"/>
       <ownedColumnMappings name="childrenCol" headerLabelExpression="Children" featureName="children" labelExpression="[children->size()/]"/>
+      <ownedColumnMappings name="cousinsCol" headerLabelExpression="Cousins" featureName="name" labelExpression="service:getCousinsNumber"/>
     </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.sample.basicfamily.services.FamilyServices"/>
   </ownedViewpoints>
 </description:Group>
