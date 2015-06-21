@@ -54,7 +54,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="setFather" edgeMappings="//@ownedViewpoints[name='persons']/@ownedRepresentations[name='Persons%20diagram']/@defaultLayer/@edgeMappings[name='fatherEdge']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="setFather" precondition="[preSource&lt;>preTarget and not preSource.children->includes(preTarget)/]" edgeMappings="//@ownedViewpoints[name='persons']/@ownedRepresentations[name='Persons%20diagram']/@defaultLayer/@edgeMappings[name='fatherEdge']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -62,6 +62,17 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="father" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="setMother" precondition="[preSource&lt;>preTarget and not preSource.children->includes(preTarget)/]" edgeMappings="//@ownedViewpoints[name='persons']/@ownedRepresentations[name='Persons%20diagram']/@defaultLayer/@edgeMappings[name='motherEdge']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="mother" valueExpression="var:target"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
